@@ -12,10 +12,8 @@ public class Summator {
     private final List<Data> logValues = new ArrayList<>();
 
     public void calc(Data data) {
-        if (data.getValue() % 15 == 0) {
-            logValues.add(data);
-        }
-        if (logValues.size() == 60_000_000) {
+        logValues.add(data);
+        if (logValues.size() % 6_600_000 == 0) {
             logValues.clear();
         }
         sum += data.getValue();
