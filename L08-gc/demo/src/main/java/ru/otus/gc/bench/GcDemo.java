@@ -81,19 +81,17 @@ public class GcDemo {
             System.out.println("GC name:" + gcbean.getName());
             NotificationEmitter emitter = (NotificationEmitter) gcbean;
             NotificationListener listener = (notification, handback) -> {
-                if (notification.getType().equals(GarbageCollectionNotificationInfo.GARBAGE_COLLECTION_NOTIFICATION)) {
-                    GarbageCollectionNotificationInfo info = GarbageCollectionNotificationInfo.from((CompositeData) notification.getUserData());
-                    String gcName = info.getGcName();
-                    String gcAction = info.getGcAction();
-                    String gcCause = info.getGcCause();
+                GarbageCollectionNotificationInfo info = GarbageCollectionNotificationInfo.from((CompositeData) notification.getUserData());
+                String gcName = info.getGcName();
+                String gcAction = info.getGcAction();
+                String gcCause = info.getGcCause();
 
-                    long startTime = info.getGcInfo().getStartTime();
-                    long duration = info.getGcInfo().getDuration();
+                long startTime = info.getGcInfo().getStartTime();
+                long duration = info.getGcInfo().getDuration();
 
-                    System.out.println("start:" + startTime + " Name:" + gcName + ", action:" + gcAction + ", gcCause:" + gcCause + "(" + duration + " ms)");
-                }
+                System.out.println("start:" + startTime + " Name:" + gcName + ", action:" + gcAction + ", gcCause:" + gcCause + "(" + duration + " ms)");
             };
-            emitter.addNotificationListener(listener, null, null);
+            emitter.addNotificationListener(listener, notification -> notification.getType().equals(GarbageCollectionNotificationInfo.GARBAGE_COLLECTION_NOTIFICATION), null);
         }
     }
 }
