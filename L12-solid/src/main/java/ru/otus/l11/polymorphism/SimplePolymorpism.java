@@ -30,21 +30,21 @@ public class SimplePolymorpism {
     private static void doSomethingWithListBad(ArrayList list) {
         System.out.println("doSomethingWithListBad(ArrayList list)");
         for(var item : list){
-            System.out.println(list);
+            System.out.println(item);
         }
     }
 
     private static void doSomethingWithListBad(LinkedList list) {
         System.out.println("doSomethingWithListBad(LinkedList list)");
         for(var item : list){
-            System.out.println(list);
+            System.out.println(item);
         }
     }
 
     private static void doSomethingWithListGood(List list) {
         System.out.println("doSomethingWithListGood(List list)");
         for(var item : list){
-            System.out.println(list);
+            System.out.println(item);
         }
     }
 }
