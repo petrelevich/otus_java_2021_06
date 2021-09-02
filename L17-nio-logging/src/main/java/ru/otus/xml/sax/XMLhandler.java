@@ -95,7 +95,7 @@ public class XMLhandler extends DefaultHandler {
 
         if (lastFlag) {
             System.out.println("last: " + value);
-            shareData.setLast(Double.valueOf(value));
+            shareData.setLast(Double.parseDouble(value));
         }
 
         if (dateFlag) {

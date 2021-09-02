@@ -46,7 +46,7 @@ public class XMLreader {
 
                 shareList.add(new Share(
                         eElement.getElementsByTagName("ticker").item(0).getTextContent(),
-                        Double.valueOf(eElement.getElementsByTagName("last").item(0).getTextContent()),
+                        Double.parseDouble(eElement.getElementsByTagName("last").item(0).getTextContent()),
                         eElement.getElementsByTagName("date").item(0).getTextContent()));
             }
         }
