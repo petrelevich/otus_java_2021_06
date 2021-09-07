@@ -3,6 +3,7 @@ package ru.otus.crm.model;
 public class Manager {
     private Long no;
     private String label;
+    private String param1;
 
     public Manager() {
     }
@@ -11,9 +12,10 @@ public class Manager {
         this.label = label;
     }
 
-    public Manager(Long no, String label) {
+    public Manager(Long no, String label, String param1) {
         this.no = no;
         this.label = label;
+        this.param1 = param1;
     }
 
     public Long getNo() {
@@ -30,6 +32,14 @@ public class Manager {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getParam1() {
+        return param1;
+    }
+
+    public void setParam1(String param1) {
+        this.param1 = param1;
     }
 
     @Override

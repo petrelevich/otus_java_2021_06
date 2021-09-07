@@ -24,7 +24,7 @@ public class DbServiceManagerImpl implements DBServiceManager {
         return transactionRunner.doInTransaction(connection -> {
             if (manager.getNo() == null) {
                 var managerNo = managerDataTemplate.insert(connection, manager);
-                var createdManager = new Manager(managerNo, manager.getLabel());
+                var createdManager = new Manager(managerNo, manager.getLabel(), manager.getParam1());
                 log.info("created manager: {}", createdManager);
                 return createdManager;
             }
