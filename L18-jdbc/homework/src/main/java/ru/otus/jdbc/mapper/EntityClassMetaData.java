@@ -7,10 +7,10 @@ import java.util.List;
 /**
  * "Разбирает" объект на составные части
  */
-public interface EntityClassMetaData {
+public interface EntityClassMetaData<T> {
     String getName();
 
-    <T> Constructor<T> getConstructor();
+    Constructor<T> getConstructor();
 
     //Поле Id должно определять по наличию аннотации Id
     //Аннотацию @Id надо сделать самостоятельно
