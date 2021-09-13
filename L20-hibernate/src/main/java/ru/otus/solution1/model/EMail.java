@@ -1,4 +1,4 @@
-package ru.otus.jpql.model;
+package ru.otus.solution1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,8 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Avatar {
+public class EMail {
     @Id
     private long id;
-    private String photoUrl;
+    private String email;
 }

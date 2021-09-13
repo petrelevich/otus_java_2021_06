@@ -1,4 +1,4 @@
-package ru.otus.jpql.model;
+package ru.otus.solution1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,12 +11,8 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OtusStudent {
+public class Course {
     @Id
     private long id;
     private String name;
-
-    //private Avatar avatar;
-    //private List<EMail> emails;
-    //private List<Course> courses;
 }

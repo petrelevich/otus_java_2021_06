@@ -1,4 +1,4 @@
-package ru.otus.mainops.model;
+package ru.otus.exercise.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
