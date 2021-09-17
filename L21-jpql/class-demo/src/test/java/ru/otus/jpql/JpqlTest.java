@@ -83,7 +83,7 @@ class JpqlTest {
         });
     }
 
-    @DisplayName(" должен удалять заданного студента по его id")
+    @DisplayName(" должен удалять заданный email по его id")
     @Test
     void shouldDeleteStudentNameById() {
         doInSessionWithTransaction(sf, session -> {
@@ -125,4 +125,31 @@ class JpqlTest {
         });
         assertThat(sf.getStatistics().getPrepareStatementCount()).isEqualTo(EXPECTED_QUERIES_COUNT);
     }
+
+    @DisplayName("должен загружать ожидаемый список студентов по номеру страницы")
+    @Test
+    void shouldReturnCorrectStudentsListByPage() {
+        sf.getStatistics().clear();
+
+        doInSessionWithTransaction(sf, session -> {
+            var studentsCount = session.createQuery("select count(s) from OtusStudent s", Long.class).getSingleResult();
+            var pageNum = 2;
+            var pageSize = 3;
+            var pagesCount = (long) Math.ceil(studentsCount * 1d / pageSize);
+
+            var query = session.createQuery("select s from OtusStudent s ", OtusStudent.class);
+/*
+            // Так не будет offset + limit из-за того, что студент может занимать больше одной строки набора данных
+            var query = session.createQuery("select s " +
+                            "from OtusStudent s join fetch s.courses c",
+                    OtusStudent.class);
+*/
+            var students = query.setFirstResult(pageNum * pageSize).setMaxResults(pageSize).getResultList();
+
+            assertThat(pagesCount).isEqualTo(4);
+            assertThat(students).isNotNull().hasSize(pageSize);
+        });
+    }
+
+
 }
