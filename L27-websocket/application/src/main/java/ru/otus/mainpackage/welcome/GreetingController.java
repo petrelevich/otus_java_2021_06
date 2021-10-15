@@ -21,7 +21,7 @@ public class GreetingController {
                               @Qualifier("messageConfig") AppConfigForBean appConfigForBean) {
         this.greetingService = greetingService;
         logger.info("ATTENTION! props.getMessage(): {}", props.getMessage());
-        logger.info("ATTENTION! applicationConfig.getMessage(): {}", appConfigForBean.message());
+        logger.info("ATTENTION! applicationConfig.getMessage(): {}", appConfigForBean.getParamName());
     }
 
     //http://localhost:8080/hello?name=ddd
