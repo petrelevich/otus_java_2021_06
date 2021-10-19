@@ -23,10 +23,7 @@ public class Client {
 
     @Nonnull
     public Client(String name, String managerId, int orderColumn) {
-        this.id = null;
-        this.managerId = managerId;
-        this.name = name;
-        this.orderColumn = orderColumn;
+        this(null, name, managerId, orderColumn);
     }
 
     @PersistenceConstructor
