@@ -32,12 +32,25 @@ public class ReentrantLockDemo {
     private void criticalSection() {
         logger.info("before critical section");
         lock.lock();
+        try {
+            logger.info("in the critical section");
+            sleep();
+        } finally {
+            lock.unlock();
+        }
+        logger.info("after critical section");
+    }
+
+    private void criticalSectionDoubleLock() {
+        logger.info("before critical section");
+        lock.lock();
         logger.info("reentrant into locked section");
         lock.lock();
         try {
             logger.info("in the critical section");
             sleep();
         } finally {
+            //сколько раз заблокировали, столько надо и разблокировать
             lock.unlock();
             lock.unlock();
         }
