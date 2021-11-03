@@ -63,3 +63,7 @@ include 'L29-threads'
 include 'L30-JMM'
 
 include 'L31-executors'
+
+include 'L32-messagingSystem:ConcurrentCollections'
+include 'L32-messagingSystem:MessageSystem'
+include 'L32-messagingSystem:MessageSystemApp'
