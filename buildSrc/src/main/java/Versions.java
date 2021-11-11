@@ -30,4 +30,6 @@ public interface Versions {
     String swagger = "3.0.0";
 
     String jsr305 = "3.0.2";
+
+    String grpc = "1.42.0";
 }

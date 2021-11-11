@@ -60,6 +60,11 @@ allprojects {
             dependency("io.springfox:springfox-boot-starter:${Versions.swagger}")
 
             dependency("com.google.code.findbugs:jsr305:${Versions.jsr305}")
+
+
+            dependency("io.grpc:grpc-netty:${Versions.grpc}")
+            dependency("io.grpc:grpc-protobuf:${Versions.grpc}")
+            dependency("io.grpc:grpc-stub:${Versions.grpc}")
         }
     }
 
