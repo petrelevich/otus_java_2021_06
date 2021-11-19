@@ -85,7 +85,7 @@ public class HttpHelloWorldServerHandler extends SimpleChannelInboundHandler<Ful
     private String postHandler(FullHttpRequest msg) {
         try (var byteArray = new ByteArrayOutputStream()) {
             msg.content().readBytes(byteArray, msg.content().readableBytes());
-            return "Hi, " + byteArray.toString() + ", now is:" + LocalTime.now();
+            return "Hi, " + byteArray + ", now is:" + LocalTime.now();
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
